@@ -1,4 +1,4 @@
-rootProject.name = 'openai-java'
+rootProject.name = 'dotai-openai'
 
 include 'api'
 include 'client'
