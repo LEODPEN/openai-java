@@ -22,4 +22,52 @@ public class ChatFunctionProperty {
     private ChatFunctionProperty items;
     @JsonProperty("enum")
     private Set<?> enumValues;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Boolean getRequired() {
+        return required;
+    }
+
+    public void setRequired(Boolean required) {
+        this.required = required;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public ChatFunctionProperty getItems() {
+        return items;
+    }
+
+    public void setItems(ChatFunctionProperty items) {
+        this.items = items;
+    }
+
+    public Set<?> getEnumValues() {
+        return enumValues;
+    }
+
+    public void setEnumValues(Set<?> enumValues) {
+        this.enumValues = enumValues;
+    }
 }

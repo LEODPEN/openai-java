@@ -8,14 +8,11 @@ import lombok.NonNull;
 
 import java.util.function.Function;
 
-@Data
-@NoArgsConstructor
 public class ChatFunction {
 
     /**
      * The name of the function being called.
      */
-    @NonNull
     private String name;
 
     /**
@@ -66,5 +63,40 @@ public class ChatFunction {
             chatFunction.setExecutor(executor);
             return chatFunction;
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Class<?> getParametersClass() {
+        return parametersClass;
+    }
+
+    public void setParametersClass(Class<?> parametersClass) {
+        this.parametersClass = parametersClass;
+    }
+
+    public Function<Object, Object> getExecutor() {
+        return executor;
+    }
+
+    public void setExecutor(Function<Object, Object> executor) {
+        this.executor = executor;
+    }
+
+    public ChatFunction() {
     }
 }

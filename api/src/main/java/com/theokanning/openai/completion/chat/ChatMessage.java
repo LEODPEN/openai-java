@@ -14,17 +14,12 @@ import lombok.*;
  *
  * see <a href="https://platform.openai.com/docs/guides/chat/introduction">OpenAi documentation</a>
  */
-@Data
-@NoArgsConstructor(force = true)
-@RequiredArgsConstructor
-@AllArgsConstructor
 public class ChatMessage {
 
 	/**
 	 * Must be either 'system', 'user', 'assistant' or 'function'.<br>
 	 * You may use {@link ChatMessageRole} enum.
 	 */
-	@NonNull
 	String role;
 	@JsonInclude() // content should always exist in the call, even if it is null
 	String content;
@@ -44,4 +39,49 @@ public class ChatMessage {
 		this.name = name;
 	}
 
+
+	public ChatMessage() {
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public ChatFunctionCall getFunctionCall() {
+		return functionCall;
+	}
+
+	public void setFunctionCall(ChatFunctionCall functionCall) {
+		this.functionCall = functionCall;
+	}
+
+	@Override
+	public String toString() {
+		return "ChatMessage{" +
+				"role='" + role + '\'' +
+				", content='" + content + '\'' +
+				", name='" + name + '\'' +
+				", functionCall=" + functionCall +
+				'}';
+	}
 }

@@ -6,12 +6,30 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
 public class AssistantFileRequest {
 
     @JsonProperty("file_id")
     String fileId;
+
+    public AssistantFileRequest(String fileId) {
+        this.fileId = fileId;
+    }
+
+    public AssistantFileRequest() {
+    }
+
+    public String getFileId() {
+        return fileId;
+    }
+
+    public void setFileId(String fileId) {
+        this.fileId = fileId;
+    }
+
+    @Override
+    public String toString() {
+        return "AssistantFileRequest{" +
+                "fileId='" + fileId + '\'' +
+                '}';
+    }
 }

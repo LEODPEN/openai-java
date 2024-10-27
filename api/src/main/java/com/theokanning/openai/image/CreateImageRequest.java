@@ -10,16 +10,11 @@ import lombok.*;
  *
  * https://beta.openai.com/docs/api-reference/images/create
  */
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
 public class CreateImageRequest {
 
     /**
      * A text description of the desired image(s). The maximum length is 1000 characters for dall-e-2 and 4000 characters for dall-e-3.
      */
-    @NonNull
     String prompt;
 
     /**
@@ -57,4 +52,96 @@ public class CreateImageRequest {
      * A unique identifier representing your end-user, which will help OpenAI to monitor and detect abuse.
      */
     String user;
+
+    public CreateImageRequest(String prompt, String model, Integer n, String quality, String size, String responseFormat, String style, String user) {
+        this.prompt = prompt;
+        this.model = model;
+        this.n = n;
+        this.quality = quality;
+        this.size = size;
+        this.responseFormat = responseFormat;
+        this.style = style;
+        this.user = user;
+    }
+
+    public CreateImageRequest() {
+    }
+
+    public String getPrompt() {
+        return prompt;
+    }
+
+    public void setPrompt(String prompt) {
+        this.prompt = prompt;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public Integer getN() {
+        return n;
+    }
+
+    public void setN(Integer n) {
+        this.n = n;
+    }
+
+    public String getQuality() {
+        return quality;
+    }
+
+    public void setQuality(String quality) {
+        this.quality = quality;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getResponseFormat() {
+        return responseFormat;
+    }
+
+    public void setResponseFormat(String responseFormat) {
+        this.responseFormat = responseFormat;
+    }
+
+    public String getStyle() {
+        return style;
+    }
+
+    public void setStyle(String style) {
+        this.style = style;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "CreateImageRequest{" +
+                "prompt='" + prompt + '\'' +
+                ", model='" + model + '\'' +
+                ", n=" + n +
+                ", quality='" + quality + '\'' +
+                ", size='" + size + '\'' +
+                ", responseFormat='" + responseFormat + '\'' +
+                ", style='" + style + '\'' +
+                ", user='" + user + '\'' +
+                '}';
+    }
 }

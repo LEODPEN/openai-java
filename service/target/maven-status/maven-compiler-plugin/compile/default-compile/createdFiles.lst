@@ -1,0 +1,4 @@
+com\theokanning\openai\service\ChatCompletionRequestSerializerAndDeserializer$Deserializer.class
+com\theokanning\openai\service\ChatCompletionRequestSerializerAndDeserializer.class
+com\theokanning\openai\service\ChatCompletionRequestSerializerAndDeserializer$Serializer.class
+com\theokanning\openai\service\SSE.class

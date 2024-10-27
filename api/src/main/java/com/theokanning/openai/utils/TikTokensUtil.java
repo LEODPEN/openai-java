@@ -235,8 +235,6 @@ public class TikTokensUtil {
         return null;
     }
 
-    @Getter
-    @AllArgsConstructor
     public enum ModelEnum {
         /**
          * gpt-3.5-turbo
@@ -268,6 +266,14 @@ public class TikTokensUtil {
          */
         GPT_4_1106_preview("gpt-4-1106-preview");
         private String name;
+
+        ModelEnum(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
     }
 
     public static boolean isBlankChar(int c) {

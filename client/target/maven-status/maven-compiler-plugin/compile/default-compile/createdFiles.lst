@@ -1,0 +1,4 @@
+com\theokanning\openai\client\AuthenticationInterceptor.class
+com\theokanning\openai\OpenAiApi.class
+com\theokanning\openai\AuthenticationInterceptor.class
+com\theokanning\openai\client\OpenAiApi.class

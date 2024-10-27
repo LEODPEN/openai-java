@@ -1,0 +1,150 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.leodpen.dotai-openai</groupId>
+    <artifactId>all</artifactId>
+    <version>0.0.1</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+        <java.version>1.8</java.version>
+        <retrofit.version>2.9.0</retrofit.version> <!-- 请根据需要调整 -->
+        <retrofitRxJava.version>2.9.0</retrofitRxJava.version> <!-- 请根据需要调整 -->
+        <retrofitJackson.version>2.9.0</retrofitJackson.version> <!-- 请根据需要调整 -->
+        <jacksonJsonSchema.version>2.12.3</jacksonJsonSchema.version> <!-- 请根据需要调整 -->
+        <junit.version>5.7.1</junit.version> <!-- 请根据需要调整 -->
+        <retrofitMock.version>2.9.0</retrofitMock.version> <!-- 请根据需要调整 -->
+        <lombok.version>1.18.20</lombok.version> <!-- 请根据需要调整 -->
+        <jackson.version>2.12.3</jackson.version> <!-- 请根据需要调整 -->
+        <jtokkit.version>1.0.0</jtokkit.version> <!-- 请根据需要调整 -->
+    </properties>
+
+    <modules>
+        <module>api</module>
+        <module>client</module>
+        <module>service</module>
+        <module>example</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.module</groupId>
+                <artifactId>jackson-module-jsonSchema</artifactId>
+                <version>${jacksonJsonSchema.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>retrofit</artifactId>
+                <version>${retrofit.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>adapter-rxjava2</artifactId>
+                <version>${retrofitRxJava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>converter-jackson</artifactId>
+                <version>${retrofitJackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.knuddels/jtokkit -->
+            <dependency>
+                <groupId>com.knuddels</groupId>
+                <artifactId>jtokkit</artifactId>
+                <version>0.5.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kjetland</groupId>
+                <artifactId>mbknor-jackson-jsonschema_2.13</artifactId>
+                <version>1.0.39</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.12.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>${maven-release-plugin.version}</version>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>${maven-deploy-plugin.version}</version>
+                <configuration>
+                    <repositoryId>sonatype</repositoryId>
+                    <url>https://oss.sonatype.org/repository/snapshots/</url>
+                </configuration>
+            </plugin>
+            <!-- 其他插件 -->
+        </plugins>
+    </build>
+
+<!--    <distributionManagement>-->
+<!--        <repository>-->
+<!--            <id>sonatype</id>-->
+<!--            <url>https://oss.sonatype.org/repository/snapshots/</url>-->
+<!--        </repository>-->
+<!--        <pluginRepository>-->
+<!--            <id>sonatype</id>-->
+<!--            <url>https://oss.sonatype.org/content/repositories/plugins-releases/</url>-->
+<!--        </pluginRepository>-->
+<!--    </distributionManagement>-->
+</project>

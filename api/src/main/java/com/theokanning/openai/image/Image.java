@@ -8,7 +8,6 @@ import lombok.Data;
  *
  * https://beta.openai.com/docs/api-reference/images
  */
-@Data
 public class Image {
     /**
      * The URL where the image can be accessed.
@@ -27,4 +26,46 @@ public class Image {
      */
     @JsonProperty("revised_prompt")
     String revisedPrompt;
+
+    public Image(String url, String b64Json, String revisedPrompt) {
+        this.url = url;
+        this.b64Json = b64Json;
+        this.revisedPrompt = revisedPrompt;
+    }
+
+    public Image() {
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getB64Json() {
+        return b64Json;
+    }
+
+    public void setB64Json(String b64Json) {
+        this.b64Json = b64Json;
+    }
+
+    public String getRevisedPrompt() {
+        return revisedPrompt;
+    }
+
+    public void setRevisedPrompt(String revisedPrompt) {
+        this.revisedPrompt = revisedPrompt;
+    }
+
+    @Override
+    public String toString() {
+        return "Image{" +
+                "url='" + url + '\'' +
+                ", b64Json='" + b64Json + '\'' +
+                ", revisedPrompt='" + revisedPrompt + '\'' +
+                '}';
+    }
 }

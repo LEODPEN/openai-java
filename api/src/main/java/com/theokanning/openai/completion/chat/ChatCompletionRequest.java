@@ -9,10 +9,6 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 import java.util.Map;
 
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class ChatCompletionRequest {
 
     /**
@@ -106,10 +102,6 @@ public class ChatCompletionRequest {
     @JsonProperty("function_call")
     ChatCompletionRequestFunctionCall functionCall;
 
-    @Data
-    @Builder
-    @AllArgsConstructor
-    @NoArgsConstructor
     public static class ChatCompletionRequestFunctionCall {
         String name;
 
@@ -117,5 +109,290 @@ public class ChatCompletionRequest {
             return new ChatCompletionRequestFunctionCall(name);
         }
 
+        public ChatCompletionRequestFunctionCall(String name) {
+            this.name = name;
+        }
+
+        public ChatCompletionRequestFunctionCall() {
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public String toString() {
+            return "ChatCompletionRequestFunctionCall{" +
+                    "name='" + name + '\'' +
+                    '}';
+        }
+    }
+
+    public ChatCompletionRequest(String model, List<ChatMessage> messages, Double temperature, Double topP, Integer n, Boolean stream, List<String> stop, Integer maxTokens, Double presencePenalty, Double frequencyPenalty, Map<String, Integer> logitBias, String user, List<?> functions, ChatCompletionRequestFunctionCall functionCall) {
+        this.model = model;
+        this.messages = messages;
+        this.temperature = temperature;
+        this.topP = topP;
+        this.n = n;
+        this.stream = stream;
+        this.stop = stop;
+        this.maxTokens = maxTokens;
+        this.presencePenalty = presencePenalty;
+        this.frequencyPenalty = frequencyPenalty;
+        this.logitBias = logitBias;
+        this.user = user;
+        this.functions = functions;
+        this.functionCall = functionCall;
+    }
+
+    public ChatCompletionRequest() {
+    }
+
+    @Override
+    public String toString() {
+        return "ChatCompletionRequest{" +
+                "model='" + model + '\'' +
+                ", messages=" + messages +
+                ", temperature=" + temperature +
+                ", topP=" + topP +
+                ", n=" + n +
+                ", stream=" + stream +
+                ", stop=" + stop +
+                ", maxTokens=" + maxTokens +
+                ", presencePenalty=" + presencePenalty +
+                ", frequencyPenalty=" + frequencyPenalty +
+                ", logitBias=" + logitBias +
+                ", user='" + user + '\'' +
+                ", functions=" + functions +
+                ", functionCall=" + functionCall +
+                '}';
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public List<ChatMessage> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<ChatMessage> messages) {
+        this.messages = messages;
+    }
+
+    public Double getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(Double temperature) {
+        this.temperature = temperature;
+    }
+
+    public Double getTopP() {
+        return topP;
+    }
+
+    public void setTopP(Double topP) {
+        this.topP = topP;
+    }
+
+    public Integer getN() {
+        return n;
+    }
+
+    public void setN(Integer n) {
+        this.n = n;
+    }
+
+    public Boolean getStream() {
+        return stream;
+    }
+
+    public void setStream(Boolean stream) {
+        this.stream = stream;
+    }
+
+    public List<String> getStop() {
+        return stop;
+    }
+
+    public void setStop(List<String> stop) {
+        this.stop = stop;
+    }
+
+    public Integer getMaxTokens() {
+        return maxTokens;
+    }
+
+    public void setMaxTokens(Integer maxTokens) {
+        this.maxTokens = maxTokens;
+    }
+
+    public Double getPresencePenalty() {
+        return presencePenalty;
+    }
+
+    public void setPresencePenalty(Double presencePenalty) {
+        this.presencePenalty = presencePenalty;
+    }
+
+    public Double getFrequencyPenalty() {
+        return frequencyPenalty;
+    }
+
+    public void setFrequencyPenalty(Double frequencyPenalty) {
+        this.frequencyPenalty = frequencyPenalty;
+    }
+
+    public Map<String, Integer> getLogitBias() {
+        return logitBias;
+    }
+
+    public void setLogitBias(Map<String, Integer> logitBias) {
+        this.logitBias = logitBias;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public List<?> getFunctions() {
+        return functions;
+    }
+
+    public void setFunctions(List<?> functions) {
+        this.functions = functions;
+    }
+
+    public ChatCompletionRequestFunctionCall getFunctionCall() {
+        return functionCall;
+    }
+
+    public void setFunctionCall(ChatCompletionRequestFunctionCall functionCall) {
+        this.functionCall = functionCall;
+    }
+
+    private ChatCompletionRequest(Builder builder) {
+        this.model = builder.model;
+        this.messages = builder.messages;
+        this.temperature = builder.temperature;
+        this.topP = builder.topP;
+        this.n = builder.n;
+        this.stream = builder.stream;
+        this.stop = builder.stop;
+        this.maxTokens = builder.maxTokens;
+        this.presencePenalty = builder.presencePenalty;
+        this.frequencyPenalty = builder.frequencyPenalty;
+        this.logitBias = builder.logitBias;
+        this.user = builder.user;
+        this.functions = builder.functions;
+        this.functionCall = builder.functionCall;
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+        private String model;
+        private List<ChatMessage> messages;
+        private Double temperature;
+        private Double topP;
+        private Integer n;
+        private Boolean stream;
+        private List<String> stop;
+        private Integer maxTokens;
+        private Double presencePenalty;
+        private Double frequencyPenalty;
+        private Map<String, Integer> logitBias;
+        private String user;
+        private List<?> functions;
+        private ChatCompletionRequestFunctionCall functionCall;
+
+        public Builder model(String model) {
+            this.model = model;
+            return this;
+        }
+
+        public Builder messages(List<ChatMessage> messages) {
+            this.messages = messages;
+            return this;
+        }
+
+        public Builder temperature(Double temperature) {
+            this.temperature = temperature;
+            return this;
+        }
+
+        public Builder topP(Double topP) {
+            this.topP = topP;
+            return this;
+        }
+
+        public Builder n(Integer n) {
+            this.n = n;
+            return this;
+        }
+
+        public Builder stream(Boolean stream) {
+            this.stream = stream;
+            return this;
+        }
+
+        public Builder stop(List<String> stop) {
+            this.stop = stop;
+            return this;
+        }
+
+        public Builder maxTokens(Integer maxTokens) {
+            this.maxTokens = maxTokens;
+            return this;
+        }
+
+        public Builder presencePenalty(Double presencePenalty) {
+            this.presencePenalty = presencePenalty;
+            return this;
+        }
+
+        public Builder frequencyPenalty(Double frequencyPenalty) {
+            this.frequencyPenalty = frequencyPenalty;
+            return this;
+        }
+
+        public Builder logitBias(Map<String, Integer> logitBias) {
+            this.logitBias = logitBias;
+            return this;
+        }
+
+        public Builder user(String user) {
+            this.user = user;
+            return this;
+        }
+
+        public Builder functions(List<?> functions) {
+            this.functions = functions;
+            return this;
+        }
+
+        public Builder functionCall(ChatCompletionRequestFunctionCall functionCall) {
+            this.functionCall = functionCall;
+            return this;
+        }
+
+        public ChatCompletionRequest build() {
+            return new ChatCompletionRequest(this);
+        }
     }
 }

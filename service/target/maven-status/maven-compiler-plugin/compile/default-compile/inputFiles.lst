@@ -1,0 +1,13 @@
+C:\Users\Administrator\Desktop\github\openai-java-self\service\src\main\java\com\theokanning\openai\service\AuthenticationInterceptor.java
+C:\Users\Administrator\Desktop\github\openai-java-self\service\src\main\java\com\theokanning\openai\service\ChatCompletionRequestMixIn.java
+C:\Users\Administrator\Desktop\github\openai-java-self\service\src\main\java\com\theokanning\openai\service\ChatCompletionRequestSerializerAndDeserializer.java
+C:\Users\Administrator\Desktop\github\openai-java-self\service\src\main\java\com\theokanning\openai\service\ChatFunctionCallArgumentsSerializerAndDeserializer.java
+C:\Users\Administrator\Desktop\github\openai-java-self\service\src\main\java\com\theokanning\openai\service\ChatFunctionCallMixIn.java
+C:\Users\Administrator\Desktop\github\openai-java-self\service\src\main\java\com\theokanning\openai\service\ChatFunctionMixIn.java
+C:\Users\Administrator\Desktop\github\openai-java-self\service\src\main\java\com\theokanning\openai\service\ChatFunctionParametersSerializer.java
+C:\Users\Administrator\Desktop\github\openai-java-self\service\src\main\java\com\theokanning\openai\service\ChatMessageAccumulator.java
+C:\Users\Administrator\Desktop\github\openai-java-self\service\src\main\java\com\theokanning\openai\service\FunctionExecutor.java
+C:\Users\Administrator\Desktop\github\openai-java-self\service\src\main\java\com\theokanning\openai\service\OpenAiService.java
+C:\Users\Administrator\Desktop\github\openai-java-self\service\src\main\java\com\theokanning\openai\service\ResponseBodyCallback.java
+C:\Users\Administrator\Desktop\github\openai-java-self\service\src\main\java\com\theokanning\openai\service\SSE.java
+C:\Users\Administrator\Desktop\github\openai-java-self\service\src\main\java\com\theokanning\openai\service\SSEFormatException.java
