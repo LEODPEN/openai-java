@@ -1,7 +1,6 @@
 package com.theokanning.openai.audio;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.*;
 
 /**
  * A request for OpenAi to create transcription based on an audio file
@@ -15,7 +14,6 @@ public class CreateTranscriptionRequest {
     /**
      * The name of the model to use.
      */
-    @NonNull
     String model;
 
     /**
@@ -48,7 +46,7 @@ public class CreateTranscriptionRequest {
     public CreateTranscriptionRequest() {
     }
 
-    public CreateTranscriptionRequest(@NonNull String model, String prompt, String responseFormat, Double temperature, String language) {
+    public CreateTranscriptionRequest( String model, String prompt, String responseFormat, Double temperature, String language) {
         if (model == null) {
             throw new NullPointerException("model is marked non-null but is null");
         } else {
@@ -60,7 +58,7 @@ public class CreateTranscriptionRequest {
         }
     }
 
-    public @NonNull String getModel() {
+    public String getModel() {
         return this.model;
     }
 
@@ -80,7 +78,7 @@ public class CreateTranscriptionRequest {
         return this.language;
     }
 
-    public void setModel(@NonNull String model) {
+    public void setModel(String model) {
         if (model == null) {
             throw new NullPointerException("model is marked non-null but is null");
         } else {
@@ -105,79 +103,6 @@ public class CreateTranscriptionRequest {
         this.language = language;
     }
 
-    public boolean equals(Object o) {
-        if (o == this) {
-            return true;
-        } else if (!(o instanceof CreateTranscriptionRequest)) {
-            return false;
-        } else {
-            CreateTranscriptionRequest other = (CreateTranscriptionRequest)o;
-            if (!other.canEqual(this)) {
-                return false;
-            } else {
-                label71: {
-                    Object this$temperature = this.getTemperature();
-                    Object other$temperature = other.getTemperature();
-                    if (this$temperature == null) {
-                        if (other$temperature == null) {
-                            break label71;
-                        }
-                    } else if (this$temperature.equals(other$temperature)) {
-                        break label71;
-                    }
-
-                    return false;
-                }
-
-                Object this$model = this.getModel();
-                Object other$model = other.getModel();
-                if (this$model == null) {
-                    if (other$model != null) {
-                        return false;
-                    }
-                } else if (!this$model.equals(other$model)) {
-                    return false;
-                }
-
-                label57: {
-                    Object this$prompt = this.getPrompt();
-                    Object other$prompt = other.getPrompt();
-                    if (this$prompt == null) {
-                        if (other$prompt == null) {
-                            break label57;
-                        }
-                    } else if (this$prompt.equals(other$prompt)) {
-                        break label57;
-                    }
-
-                    return false;
-                }
-
-                Object this$responseFormat = this.getResponseFormat();
-                Object other$responseFormat = other.getResponseFormat();
-                if (this$responseFormat == null) {
-                    if (other$responseFormat != null) {
-                        return false;
-                    }
-                } else if (!this$responseFormat.equals(other$responseFormat)) {
-                    return false;
-                }
-
-                Object this$language = this.getLanguage();
-                Object other$language = other.getLanguage();
-                if (this$language == null) {
-                    if (other$language == null) {
-                        return true;
-                    }
-                } else if (this$language.equals(other$language)) {
-                    return true;
-                }
-
-                return false;
-            }
-        }
-    }
-
     public String toString() {
         return "CreateTranscriptionRequest(model=" + this.getModel() + ", prompt=" + this.getPrompt() + ", responseFormat=" + this.getResponseFormat() + ", temperature=" + this.getTemperature() + ", language=" + this.getLanguage() + ")";
     }
@@ -192,7 +117,7 @@ public class CreateTranscriptionRequest {
         CreateTranscriptionRequestBuilder() {
         }
 
-        public CreateTranscriptionRequestBuilder model(@NonNull String model) {
+        public CreateTranscriptionRequestBuilder model(String model) {
             if (model == null) {
                 throw new NullPointerException("model is marked non-null but is null");
             } else {
