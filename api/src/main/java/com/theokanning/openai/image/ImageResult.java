@@ -1,7 +1,5 @@
 package com.theokanning.openai.image;
 
-import lombok.Data;
-
 import java.util.List;
 
 /**

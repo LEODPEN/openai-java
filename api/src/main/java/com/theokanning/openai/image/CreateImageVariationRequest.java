@@ -1,7 +1,6 @@
 package com.theokanning.openai.image;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.*;
 
 /**
  * A request for OpenAi to create a variation of an image
@@ -36,6 +35,11 @@ public class CreateImageVariationRequest {
      * A unique identifier representing your end-user, which will help OpenAI to monitor and detect abuse.
      */
     String user;
+
+    public static CreateImageVariationRequestBuilder builder() {
+        return new CreateImageVariationRequestBuilder();
+    }
+
 
     public CreateImageVariationRequest(Integer n, String model, String size, String responseFormat, String user) {
         this.n = n;
@@ -97,5 +101,50 @@ public class CreateImageVariationRequest {
                 ", responseFormat='" + responseFormat + '\'' +
                 ", user='" + user + '\'' +
                 '}';
+    }
+
+    public static class CreateImageVariationRequestBuilder {
+        private Integer n;
+        private String model;
+        private String size;
+        private String responseFormat;
+        private String user;
+
+        CreateImageVariationRequestBuilder() {
+        }
+
+        public CreateImageVariationRequestBuilder n(Integer n) {
+            this.n = n;
+            return this;
+        }
+
+        public CreateImageVariationRequestBuilder model(String model) {
+            this.model = model;
+            return this;
+        }
+
+        public CreateImageVariationRequestBuilder size(String size) {
+            this.size = size;
+            return this;
+        }
+
+        @JsonProperty("response_format")
+        public CreateImageVariationRequestBuilder responseFormat(String responseFormat) {
+            this.responseFormat = responseFormat;
+            return this;
+        }
+
+        public CreateImageVariationRequestBuilder user(String user) {
+            this.user = user;
+            return this;
+        }
+
+        public CreateImageVariationRequest build() {
+            return new CreateImageVariationRequest(this.n, this.model, this.size, this.responseFormat, this.user);
+        }
+
+        public String toString() {
+            return "CreateImageVariationRequest.CreateImageVariationRequestBuilder(n=" + this.n + ", model=" + this.model + ", size=" + this.size + ", responseFormat=" + this.responseFormat + ", user=" + this.user + ")";
+        }
     }
 }

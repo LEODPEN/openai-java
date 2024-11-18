@@ -1,9 +1,5 @@
 package com.theokanning.openai.messages.content;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.List;
 
 /**
@@ -11,9 +7,6 @@ import java.util.List;
  * <p>
  * https://platform.openai.com/docs/api-reference/messages/object
  */
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Text {
 
     /**
@@ -25,4 +18,36 @@ public class Text {
      * Text annotations that show additional details
      */
     List<Annotation> annotations;
+
+    public Text(String value, List<Annotation> annotations) {
+        this.value = value;
+        this.annotations = annotations;
+    }
+
+    public Text() {
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public List<Annotation> getAnnotations() {
+        return annotations;
+    }
+
+    public void setAnnotations(List<Annotation> annotations) {
+        this.annotations = annotations;
+    }
+
+    @Override
+    public String toString() {
+        return "Text{" +
+                "value='" + value + '\'' +
+                ", annotations=" + annotations +
+                '}';
+    }
 }

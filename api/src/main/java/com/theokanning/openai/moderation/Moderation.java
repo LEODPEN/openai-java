@@ -8,7 +8,6 @@ import lombok.Data;
  *
  * https://beta.openai.com/docs/api-reference/moderations/create
  */
-@Data
 public class Moderation {
     /**
      * Set to true if the model classifies the content as violating OpenAI's content policy, false otherwise
@@ -29,4 +28,46 @@ public class Moderation {
      */
     @JsonProperty("category_scores")
     public ModerationCategoryScores categoryScores;
+
+    public Moderation(boolean flagged, ModerationCategories categories, ModerationCategoryScores categoryScores) {
+        this.flagged = flagged;
+        this.categories = categories;
+        this.categoryScores = categoryScores;
+    }
+
+    public Moderation() {
+    }
+
+    public boolean isFlagged() {
+        return flagged;
+    }
+
+    public void setFlagged(boolean flagged) {
+        this.flagged = flagged;
+    }
+
+    public ModerationCategories getCategories() {
+        return categories;
+    }
+
+    public void setCategories(ModerationCategories categories) {
+        this.categories = categories;
+    }
+
+    public ModerationCategoryScores getCategoryScores() {
+        return categoryScores;
+    }
+
+    public void setCategoryScores(ModerationCategoryScores categoryScores) {
+        this.categoryScores = categoryScores;
+    }
+
+    @Override
+    public String toString() {
+        return "Moderation{" +
+                "flagged=" + flagged +
+                ", categories=" + categories +
+                ", categoryScores=" + categoryScores +
+                '}';
+    }
 }

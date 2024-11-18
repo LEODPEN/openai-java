@@ -1,10 +1,6 @@
 package com.theokanning.openai.messages;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.Map;
@@ -15,10 +11,6 @@ import java.util.Map;
  * <p>
  * https://platform.openai.com/docs/api-reference/messages/object
  */
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
 public class Message {
     /**
      * The identifier, which can be referenced in API endpoints.
@@ -78,4 +70,116 @@ public class Message {
      * Keys can be a maximum of 64 characters long, and values can be a maximum of 512 characters long.
      */
     Map<String, String> metadata;
+
+    public Message(String id, String object, int createdAt, String threadId, String role, List<MessageContent> content, String assistantId, String runId, List<String> fileIds, Map<String, String> metadata) {
+        this.id = id;
+        this.object = object;
+        this.createdAt = createdAt;
+        this.threadId = threadId;
+        this.role = role;
+        this.content = content;
+        this.assistantId = assistantId;
+        this.runId = runId;
+        this.fileIds = fileIds;
+        this.metadata = metadata;
+    }
+
+    public Message() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getObject() {
+        return object;
+    }
+
+    public void setObject(String object) {
+        this.object = object;
+    }
+
+    public int getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(int createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getThreadId() {
+        return threadId;
+    }
+
+    public void setThreadId(String threadId) {
+        this.threadId = threadId;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public List<MessageContent> getContent() {
+        return content;
+    }
+
+    public void setContent(List<MessageContent> content) {
+        this.content = content;
+    }
+
+    public String getAssistantId() {
+        return assistantId;
+    }
+
+    public void setAssistantId(String assistantId) {
+        this.assistantId = assistantId;
+    }
+
+    public String getRunId() {
+        return runId;
+    }
+
+    public void setRunId(String runId) {
+        this.runId = runId;
+    }
+
+    public List<String> getFileIds() {
+        return fileIds;
+    }
+
+    public void setFileIds(List<String> fileIds) {
+        this.fileIds = fileIds;
+    }
+
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(Map<String, String> metadata) {
+        this.metadata = metadata;
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "id='" + id + '\'' +
+                ", object='" + object + '\'' +
+                ", createdAt=" + createdAt +
+                ", threadId='" + threadId + '\'' +
+                ", role='" + role + '\'' +
+                ", content=" + content +
+                ", assistantId='" + assistantId + '\'' +
+                ", runId='" + runId + '\'' +
+                ", fileIds=" + fileIds +
+                ", metadata=" + metadata +
+                '}';
+    }
 }

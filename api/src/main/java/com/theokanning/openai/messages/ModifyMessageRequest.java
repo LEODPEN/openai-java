@@ -1,10 +1,5 @@
 package com.theokanning.openai.messages;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.Map;
 
 /**
@@ -12,10 +7,6 @@ import java.util.Map;
  * <p>
  * https://platform.openai.com/docs/api-reference/messages/modifyMessage
  */
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
 public class ModifyMessageRequest {
 
     /**
@@ -24,4 +15,48 @@ public class ModifyMessageRequest {
      * Keys can be a maximum of 64 characters long, and values can be a maximum of 512 characters long.
      */
     Map<String, String> metadata;
+
+    public static ModifyMessageRequestBuilder builder() {
+        return new ModifyMessageRequestBuilder();
+    }
+
+
+    public ModifyMessageRequest(Map<String, String> metadata) {
+        this.metadata = metadata;
+    }
+
+    public ModifyMessageRequest() {
+    }
+
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(Map<String, String> metadata) {
+        this.metadata = metadata;
+    }
+
+    public String toString() {
+        return "ModifyMessageRequest(metadata=" + this.getMetadata() + ")";
+    }
+
+    public static class ModifyMessageRequestBuilder {
+        private Map<String, String> metadata;
+
+        ModifyMessageRequestBuilder() {
+        }
+
+        public ModifyMessageRequestBuilder metadata(Map<String, String> metadata) {
+            this.metadata = metadata;
+            return this;
+        }
+
+        public ModifyMessageRequest build() {
+            return new ModifyMessageRequest(this.metadata);
+        }
+
+        public String toString() {
+            return "ModifyMessageRequest.ModifyMessageRequestBuilder(metadata=" + this.metadata + ")";
+        }
+    }
 }

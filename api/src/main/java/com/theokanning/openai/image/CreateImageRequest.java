@@ -53,6 +53,10 @@ public class CreateImageRequest {
      */
     String user;
 
+    public static CreateImageRequestBuilder builder() {
+        return new CreateImageRequestBuilder();
+    }
+
     public CreateImageRequest(String prompt, String model, Integer n, String quality, String size, String responseFormat, String style, String user) {
         this.prompt = prompt;
         this.model = model;
@@ -143,5 +147,72 @@ public class CreateImageRequest {
                 ", style='" + style + '\'' +
                 ", user='" + user + '\'' +
                 '}';
+    }
+
+    public static class CreateImageRequestBuilder {
+        private String prompt;
+        private String model;
+        private Integer n;
+        private String quality;
+        private String size;
+        private String responseFormat;
+        private String style;
+        private String user;
+
+        CreateImageRequestBuilder() {
+        }
+
+        public CreateImageRequestBuilder prompt(@NonNull String prompt) {
+            if (prompt == null) {
+                throw new NullPointerException("prompt is marked non-null but is null");
+            } else {
+                this.prompt = prompt;
+                return this;
+            }
+        }
+
+        public CreateImageRequestBuilder model(String model) {
+            this.model = model;
+            return this;
+        }
+
+        public CreateImageRequestBuilder n(Integer n) {
+            this.n = n;
+            return this;
+        }
+
+        public CreateImageRequestBuilder quality(String quality) {
+            this.quality = quality;
+            return this;
+        }
+
+        public CreateImageRequestBuilder size(String size) {
+            this.size = size;
+            return this;
+        }
+
+        @JsonProperty("response_format")
+        public CreateImageRequestBuilder responseFormat(String responseFormat) {
+            this.responseFormat = responseFormat;
+            return this;
+        }
+
+        public CreateImageRequestBuilder style(String style) {
+            this.style = style;
+            return this;
+        }
+
+        public CreateImageRequestBuilder user(String user) {
+            this.user = user;
+            return this;
+        }
+
+        public CreateImageRequest build() {
+            return new CreateImageRequest(this.prompt, this.model, this.n, this.quality, this.size, this.responseFormat, this.style, this.user);
+        }
+
+        public String toString() {
+            return "CreateImageRequest.CreateImageRequestBuilder(prompt=" + this.prompt + ", model=" + this.model + ", n=" + this.n + ", quality=" + this.quality + ", size=" + this.size + ", responseFormat=" + this.responseFormat + ", style=" + this.style + ", user=" + this.user + ")";
+        }
     }
 }

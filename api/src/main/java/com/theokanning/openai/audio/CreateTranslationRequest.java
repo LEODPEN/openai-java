@@ -1,7 +1,6 @@
 package com.theokanning.openai.audio;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.*;
 
 /**
  * A request for OpenAi to create English translation based on an audio file
@@ -14,7 +13,6 @@ public class CreateTranslationRequest {
     /**
      * The name of the model to use.
      */
-    @NonNull
     String model;
 
     /**
@@ -42,7 +40,7 @@ public class CreateTranslationRequest {
     public CreateTranslationRequest() {
     }
 
-    public CreateTranslationRequest(@NonNull String model, String prompt, String responseFormat, Double temperature) {
+    public CreateTranslationRequest(String model, String prompt, String responseFormat, Double temperature) {
         if (model == null) {
             throw new NullPointerException("model is marked non-null but is null");
         } else {
@@ -53,7 +51,7 @@ public class CreateTranslationRequest {
         }
     }
 
-    public @NonNull String getModel() {
+    public String getModel() {
         return this.model;
     }
 
@@ -69,7 +67,7 @@ public class CreateTranslationRequest {
         return this.temperature;
     }
 
-    public void setModel(@NonNull String model) {
+    public void setModel(String model) {
         if (model == null) {
             throw new NullPointerException("model is marked non-null but is null");
         } else {
@@ -103,7 +101,7 @@ public class CreateTranslationRequest {
         CreateTranslationRequestBuilder() {
         }
 
-        public CreateTranslationRequestBuilder model(@NonNull String model) {
+        public CreateTranslationRequestBuilder model(String model) {
             if (model == null) {
                 throw new NullPointerException("model is marked non-null but is null");
             } else {

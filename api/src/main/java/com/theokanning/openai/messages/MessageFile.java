@@ -10,9 +10,6 @@ import lombok.NoArgsConstructor;
  * <p>
  * https://platform.openai.com/docs/api-reference/messages/file-object
  */
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
 public class MessageFile {
     /**
      * The identifier, which can be referenced in API endpoints.
@@ -35,4 +32,56 @@ public class MessageFile {
      */
     @JsonProperty("message_id")
     String messageId;
+
+    public MessageFile(String id, String object, int createdAt, String messageId) {
+        this.id = id;
+        this.object = object;
+        this.createdAt = createdAt;
+        this.messageId = messageId;
+    }
+
+    public MessageFile() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getObject() {
+        return object;
+    }
+
+    public void setObject(String object) {
+        this.object = object;
+    }
+
+    public int getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(int createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getMessageId() {
+        return messageId;
+    }
+
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
+    }
+
+    @Override
+    public String toString() {
+        return "MessageFile{" +
+                "id='" + id + '\'' +
+                ", object='" + object + '\'' +
+                ", createdAt=" + createdAt +
+                ", messageId='" + messageId + '\'' +
+                '}';
+    }
 }

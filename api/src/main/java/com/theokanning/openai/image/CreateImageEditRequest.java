@@ -1,7 +1,6 @@
 package com.theokanning.openai.image;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.*;
 
 /**
  * A request for OpenAi to edit an image based on a prompt
@@ -41,6 +40,11 @@ public class CreateImageEditRequest {
      * A unique identifier representing your end-user, which will help OpenAI to monitor and detect abuse.
      */
     String user;
+
+    public static CreateImageEditRequestBuilder builder() {
+        return new CreateImageEditRequestBuilder();
+    }
+
 
     public CreateImageEditRequest(String prompt, String model, Integer n, String size, String responseFormat, String user) {
         this.prompt = prompt;
@@ -112,5 +116,60 @@ public class CreateImageEditRequest {
                 ", responseFormat='" + responseFormat + '\'' +
                 ", user='" + user + '\'' +
                 '}';
+    }
+
+    public static class CreateImageEditRequestBuilder {
+        private String prompt;
+        private String model;
+        private Integer n;
+        private String size;
+        private String responseFormat;
+        private String user;
+
+        CreateImageEditRequestBuilder() {
+        }
+
+        public CreateImageEditRequestBuilder prompt(String prompt) {
+            if (prompt == null) {
+                throw new NullPointerException("prompt is marked non-null but is null");
+            } else {
+                this.prompt = prompt;
+                return this;
+            }
+        }
+
+        public CreateImageEditRequestBuilder model(String model) {
+            this.model = model;
+            return this;
+        }
+
+        public CreateImageEditRequestBuilder n(Integer n) {
+            this.n = n;
+            return this;
+        }
+
+        public CreateImageEditRequestBuilder size(String size) {
+            this.size = size;
+            return this;
+        }
+
+        @JsonProperty("response_format")
+        public CreateImageEditRequestBuilder responseFormat(String responseFormat) {
+            this.responseFormat = responseFormat;
+            return this;
+        }
+
+        public CreateImageEditRequestBuilder user(String user) {
+            this.user = user;
+            return this;
+        }
+
+        public CreateImageEditRequest build() {
+            return new CreateImageEditRequest(this.prompt, this.model, this.n, this.size, this.responseFormat, this.user);
+        }
+
+        public String toString() {
+            return "CreateImageEditRequest.CreateImageEditRequestBuilder(prompt=" + this.prompt + ", model=" + this.model + ", n=" + this.n + ", size=" + this.size + ", responseFormat=" + this.responseFormat + ", user=" + this.user + ")";
+        }
     }
 }
